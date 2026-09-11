@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Consola de recuperación</title>
+    <style>
+        body { font-family: monospace; background: #000; color: #0f0; padding: 2rem; }
+        input, button { font-family: monospace; background: #222; color: #0f0; border: 1px solid #0f0; padding: 5px; }
+        #mensaje { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Terminal de administración</h2>
+    <p>Introduzca el token para reiniciar los servicios:</p>
+    <input type="text" id="tokenInput" autocomplete="off">
+    <button onclick="validar()">Ejecutar</button>
+    <div id="mensaje"></div>
+
+    <script>
+        function validar() {
+            const input = document.getElementById('tokenInput').value;
+            const msj = document.getElementById('mensaje');
+            
+            if (btoa(input) === "VDBrM25fUjNjdXBlcjRjaTBuX0Q0TQ==") {
+                msj.style.color = "#0f0";
+                msj.innerText = "[OK] Autenticación correcta. Reiniciando servicios...";
+            } else {
+                msj.style.color = "red";
+                msj.innerText = "[ERROR] Token inválido. Acceso denegado.";
+            }
+        }
+    </script>
+</body>
+</html>
